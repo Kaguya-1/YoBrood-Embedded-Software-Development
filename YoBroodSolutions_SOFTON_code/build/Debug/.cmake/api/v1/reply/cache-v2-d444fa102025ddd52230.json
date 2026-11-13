@@ -179,7 +179,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON/build/Debug"
+			"value" : "c:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code/build/Debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -223,11 +223,11 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "Path to CMake executable."
 				}
 			],
-			"type" : "UNINITIALIZED",
-			"value" : "cube-cmake"
+			"type" : "INTERNAL",
+			"value" : "C:/Users/kyanv/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/bin/cmake.exe"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -647,7 +647,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON/build/Debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code/build/Debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -707,7 +707,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON"
+			"value" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1231,7 +1231,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON/build/Debug"
+			"value" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code/build/Debug"
 		},
 		{
 			"name" : "YoBroodSolutions_SOFTON_IS_TOP_LEVEL",
@@ -1255,7 +1255,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON"
+			"value" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code"
 		}
 	],
 	"kind" : "cache",

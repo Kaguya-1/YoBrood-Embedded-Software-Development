@@ -1,0 +1,8 @@
+# ninja log v7
+17	98	8162746807032440	CMakeFiles/YoBroodSolutions_SOFTON.dir/Src/startup_stm32f407xx.S.obj	96625258e5bf28b9
+3	116	8162752511016304	CMakeFiles/YoBroodSolutions_SOFTON.dir/Src/main.c.obj	748c2765df427c80
+8	132	8162746806937383	CMakeFiles/YoBroodSolutions_SOFTON.dir/Src/sysmem.c.obj	5aceef23b7919edc
+4	168	8162746806892335	CMakeFiles/YoBroodSolutions_SOFTON.dir/Src/syscall.c.obj	f61a0d16a63d24b4
+117	227	8162752512147096	YoBroodSolutions_SOFTON.elf	d3922bb56ce4b990
+4	33	8162746804374654	CMakeFiles/clean.additional	8ce89f3b00961abd
+33	41	8162746804659890	clean	b1fb5bce8179866a

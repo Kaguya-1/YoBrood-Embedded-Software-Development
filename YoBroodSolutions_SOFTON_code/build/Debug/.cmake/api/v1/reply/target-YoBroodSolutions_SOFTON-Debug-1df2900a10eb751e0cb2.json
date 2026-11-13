@@ -167,7 +167,7 @@
 			[
 				{
 					"backtrace" : 7,
-					"path" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON/Inc"
+					"path" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code/Inc"
 				}
 			],
 			"language" : "C",
@@ -269,7 +269,7 @@
 			[
 				{
 					"backtrace" : 7,
-					"path" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON/Inc"
+					"path" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code/Inc"
 				}
 			],
 			"language" : "ASM",
@@ -315,12 +315,12 @@
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-TC:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON/build/Debug/stm32f407xg_flash.ld",
+				"fragment" : "-TC:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code/build/Debug/stm32f407xg_flash.ld",
 				"role" : "flags"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-Wl,-Map=C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON/build/Debug/YoBroodSolutions_SOFTON.map",
+				"fragment" : "-Wl,-Map=C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code/build/Debug/YoBroodSolutions_SOFTON.map",
 				"role" : "flags"
 			},
 			{

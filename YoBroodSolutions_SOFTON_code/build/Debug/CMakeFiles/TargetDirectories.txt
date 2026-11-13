@@ -1,0 +1,3 @@
+C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code/build/Debug/CMakeFiles/YoBroodSolutions_SOFTON.dir
+C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code/build/Debug/CMakeFiles/edit_cache.dir
+C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code/build/Debug/CMakeFiles/rebuild_cache.dir

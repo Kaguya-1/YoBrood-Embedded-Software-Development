@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "YoBroodSolutions_SOFTON::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-YoBroodSolutions_SOFTON-Debug-ea79a44263202357766d.json",
+					"jsonFile" : "target-YoBroodSolutions_SOFTON-Debug-1df2900a10eb751e0cb2.json",
 					"name" : "YoBroodSolutions_SOFTON",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON/build/Debug",
-		"source" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON"
+		"build" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code/build/Debug",
+		"source" : "C:/Users/kyanv/Documents/YoBrood-Embedded-Software-Development/YoBroodSolutions_SOFTON_code"
 	},
 	"version" : 
 	{
