@@ -1,2 +1,9 @@
 CompileFlags:
   CompilationDatabase: build/Debug
+
+Documentation:
+  CommentFormat: Doxygen
+
+CompileFlags:
+  CompilationDatabase: build/Debug
+  Add: [-Wdocumentation]

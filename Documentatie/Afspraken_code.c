@@ -6,15 +6,15 @@
 // Dus stel laag 2 wil functies aanroepen van laag 3, dan moet laag 3 alle functies die aan te roepen zijn in het .h bestand van laag 3 hebben staan
 // In laag 2 heb je dan een #include ".h bestand van laag 3" nodig
 
-/** ==================================================================================== */
-/** @file Afspraken_code.c                                                               */
-/** @author K.vijlbrief, A.Kamphuis of C.Fletcher                                        */
-/** @date datum van wanneer je het bestand voor het laatst hebt aangepast                */
-/** @version versiebeheer, moeten we misschien nog even wat over bedenken hoe dit moet   */
-/**                                                                                      */
-/** @brief Leg hier uit wat je code doet, en schrijf het kort op                         */
-/** @attention kan er eventueel ook in                                                   */
-/** ==================================================================================== */
+/** ==================================================================================== 
+ * @file Afspraken_code.c                                                              
+ * @author K.vijlbrief, A.Kamphuis of C.Fletcher                                       
+ * @date datum van wanneer je het bestand voor het laatst hebt aangepast               
+ * @version versiebeheer, moeten we misschien nog even wat over bedenken hoe dit moet   
+ *                                                                                      
+ * @brief Leg hier uit wat je code doet, en schrijf het kort op                        
+ * @attention kan er eventueel ook in                                                   
+ *==================================================================================== */
 
 
 // Volgorde van source opbouw, van boven naar beneden is:
@@ -60,6 +60,8 @@ int API_draw_text (int x_lup, int y_lup, int color, char *text, char *fontname, 
 int LAAG2_exec_functies(struct command *c);
 // Dit is dan maybe een idee voor het ontvangen van de UART
 int LAAG3_receive_char(int *uart_handle);
+// Dit is voor alle lagen relevant
+int SYSTEM_systemclock_config(void);
 
 
 

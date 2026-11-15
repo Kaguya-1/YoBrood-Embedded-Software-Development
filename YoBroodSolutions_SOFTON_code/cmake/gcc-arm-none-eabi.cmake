@@ -2,6 +2,36 @@
 
 set(CMAKE_SYSTEM_NAME               Generic)
 set(CMAKE_SYSTEM_PROCESSOR          arm)
+include("${CMAKE_CURRENT_LIST_DIR}/target.cmake")
+
+set(ARM_TOOLCHAIN_BIN_DIRS)
+if(DEFINED ENV{CUBE_BUNDLE_PATH})
+  file(GLOB CUBE_TOOLCHAIN_BIN_DIRS "$ENV{CUBE_BUNDLE_PATH}/gnu-tools-for-stm32/*/bin")
+  list(APPEND ARM_TOOLCHAIN_BIN_DIRS ${CUBE_TOOLCHAIN_BIN_DIRS})
+endif()
+if(DEFINED ENV{LOCALAPPDATA})
+  file(GLOB LOCAL_TOOLCHAIN_BIN_DIRS "$ENV{LOCALAPPDATA}/stm32cube/bundles/gnu-tools-for-stm32/*/bin")
+  list(APPEND ARM_TOOLCHAIN_BIN_DIRS ${LOCAL_TOOLCHAIN_BIN_DIRS})
+endif()
+
+find_program(ARM_NONE_EABI_GCC
+  NAMES arm-none-eabi-gcc
+  HINTS ${ARM_TOOLCHAIN_BIN_DIRS}
+)
+find_program(ARM_NONE_EABI_GXX
+  NAMES arm-none-eabi-g++
+  HINTS ${ARM_TOOLCHAIN_BIN_DIRS}
+)
+
+if(NOT ARM_NONE_EABI_GCC)
+  message(FATAL_ERROR "arm-none-eabi-gcc was not found. Add its bin directory to PATH or install it under the STM32Cube bundles directory.")
+endif()
+
+set(CMAKE_C_COMPILER "${ARM_NONE_EABI_GCC}" CACHE FILEPATH "ARM GNU C compiler")
+set(CMAKE_ASM_COMPILER "${ARM_NONE_EABI_GCC}" CACHE FILEPATH "ARM GNU assembler")
+if(ARM_NONE_EABI_GXX)
+  set(CMAKE_CXX_COMPILER "${ARM_NONE_EABI_GXX}" CACHE FILEPATH "ARM GNU C++ compiler")
+endif()
 
 # Some target device related default GCC settings
 if(CPU STREQUAL "Cortex-M0")
@@ -129,9 +159,6 @@ set(CPP_FLAGS                       "${FLAGS} -fno-rtti -fno-exceptions -fno-thr
 set(CMAKE_C_FLAGS                   ${FLAGS})
 set(CMAKE_CXX_FLAGS                 ${CPP_FLAGS})
 
-set(CMAKE_C_COMPILER                ${TOOLCHAIN_PREFIX}gcc)
-set(CMAKE_ASM_COMPILER              ${CMAKE_C_COMPILER})
-set(CMAKE_CXX_COMPILER              ${TOOLCHAIN_PREFIX}g++)
 set(CMAKE_OBJCOPY                   ${TOOLCHAIN_PREFIX}objcopy)
 set(CMAKE_SIZE                      ${TOOLCHAIN_PREFIX}size)
 

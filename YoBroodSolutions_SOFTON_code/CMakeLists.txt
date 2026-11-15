@@ -1,27 +1,16 @@
 # Set the minimum version of CMake that can be used
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.21)
 
 # Enable compile command to ease indexing with e.g. clangd
-set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
-set(CMAKE_C_COMPILER_FORCED TRUE)
-set(CMAKE_CXX_COMPILER_FORCED TRUE)
-
-# Set target definition variables required by the toolchain file
-include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/target.cmake)
-
-# Set the toolchain file for cross-compilation
-include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/gcc-arm-none-eabi.cmake)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Project definition
-project(YoBroodSolutions_SOFTON)
-
-# Enable CMake support for ASM and C/CPP languages
-enable_language(C CXX ASM)
-
-set(PROJECT_NAME YoBroodSolutions_SOFTON)
+project(YoBroodSolutions_SOFTON LANGUAGES C ASM)
 
 # Create an executable object type
-add_executable(${PROJECT_NAME})
+add_executable(${PROJECT_NAME}
+  Core/Src/main.c
+)
 
 # Include additional CMake files for flags, components, and files
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/flags.cmake)
@@ -33,9 +22,16 @@ target_sources(${PROJECT_NAME} PRIVATE
   # User defined sources
 )
 
-# Add include directories
+# All of the user made directories need to be defined here
+# Otherwise cmake won't see them, and is then not able to define the project correctly
 target_include_directories(${PROJECT_NAME} PRIVATE
-  # User defined include directories
+  Core/Src
+  Core/Inc
+  Core/Src/EE_API_LIB
+  Drivers/SYSTEM
+  Drivers/STM32F4xx_HAL_Driver/Inc
+  Drivers/CMSIS/Core/Include
+  Drivers/CMSIS/Device/ST/STM32F4xx/Include
 )
 
 # Compiler options
@@ -43,9 +39,9 @@ target_compile_options(${PROJECT_NAME} PRIVATE
   # User defined compiler options
 )
 
-# Add additional defined symbols
+# The user needs to change the compile definitions such that the compiler knows what board to use and which settings to apply
 target_compile_definitions(${PROJECT_NAME} PRIVATE
-  # Add additional defined symbols here
+  STM32F407xx
 )
 
 # Linker options
