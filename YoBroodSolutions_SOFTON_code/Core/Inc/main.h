@@ -35,26 +35,6 @@ extern "C" {
 #define B1_GPIO_Port GPIOA
 #define BOOT1_Pin GPIO_PIN_2
 #define BOOT1_GPIO_Port GPIOB
-#define VGA_BLUE0_Pin GPIO_PIN_8
-#define VGA_BLUE0_GPIO_Port GPIOE
-#define VGA_BLUE1_Pin GPIO_PIN_9
-#define VGA_BLUE1_GPIO_Port GPIOE
-#define VGA_GREEN0_Pin GPIO_PIN_10
-#define VGA_GREEN0_GPIO_Port GPIOE
-#define VGA_GREEN1_Pin GPIO_PIN_11
-#define VGA_GREEN1_GPIO_Port GPIOE
-#define VGA_GREEN2_Pin GPIO_PIN_12
-#define VGA_GREEN2_GPIO_Port GPIOE
-#define VGA_RED0_Pin GPIO_PIN_13
-#define VGA_RED0_GPIO_Port GPIOE
-#define VGA_RED1_Pin GPIO_PIN_14
-#define VGA_RED1_GPIO_Port GPIOE
-#define VGA_RED2_Pin GPIO_PIN_15
-#define VGA_RED2_GPIO_Port GPIOE
-#define VGA_HSYNC_Pin GPIO_PIN_11
-#define VGA_HSYNC_GPIO_Port GPIOB
-#define VGA_VSYNC_Pin GPIO_PIN_12
-#define VGA_VSYNC_GPIO_Port GPIOB
 #define LD4_Pin GPIO_PIN_12
 #define LD4_GPIO_Port GPIOD
 #define LD3_Pin GPIO_PIN_13
@@ -65,5 +45,6 @@ extern "C" {
 #define LD6_GPIO_Port GPIOD
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
+
 
 #endif

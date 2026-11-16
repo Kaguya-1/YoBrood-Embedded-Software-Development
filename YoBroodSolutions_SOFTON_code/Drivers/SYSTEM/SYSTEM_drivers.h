@@ -10,9 +10,9 @@
  *==================================================================================== */
 
 #include "main.h"
+#include "stm32f4xx_hal_dma.h"
 
-extern TIM_HandleTypeDef htim1;
-extern TIM_HandleTypeDef htim2;
+
 
 extern UART_HandleTypeDef huart2;
 
@@ -23,6 +23,9 @@ void SYSTEM_USART2_Init(void);
 void SYSTEM_TIM1_Init(void);
 void SYSTEM_TIM2_Init(void);
 void SYSTEM_GPIO_Init(void);
+void SYSTEM_VGA_Init(void);
 
 void SYSTEM_systemclock_config(void);
 void SYSTEM_error_handler(void);
+
+void SYSTEM_TIM_MspPostInit(TIM_HandleTypeDef *htim);

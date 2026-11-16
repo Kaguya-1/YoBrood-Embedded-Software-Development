@@ -22,11 +22,11 @@ int main(void)
     HAL_Init();
     SYSTEM_systemclock_config();
 
+    UB_VGA_FillScreen(VGA_COLOR_BLACK);
+
     SYSTEM_GPIO_Init();
-    //SYSTEM_DMA_Init();
-    SYSTEM_TIM1_Init();
-    SYSTEM_TIM2_Init();
     SYSTEM_USART2_Init();
+    API_VGA_init();
 
 
     /* Init API functionality */
