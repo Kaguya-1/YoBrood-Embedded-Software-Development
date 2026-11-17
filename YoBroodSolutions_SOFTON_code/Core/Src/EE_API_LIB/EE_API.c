@@ -30,23 +30,17 @@ void API_VGA_init(void)
   VGA.hsync_cnt = 0;
   VGA.start_adr = (uint32_t)&VGA_RAM1[0];
 
-  GPIOB->BSRR = VGA_VSYNC_Pin;
+  MX_DMA_Init();
+  MX_GPIO_Init();
+  MX_TIM1_Init();
+  MX_TIM2_Init();
 
-  __HAL_RCC_TIM1_CLK_ENABLE();
-  __HAL_RCC_TIM2_CLK_ENABLE();
-
-  API_TIM1_init();
-  API_TIM2_init();
-  API_IT_init(&htim2);
-  API_GPIO_init();
-  API_DMA_init(&htim1);
-
-
-  HAL_TIM_Base_Start(&htim2);
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
-  HAL_TIM_PWM_Start_IT(&htim2, TIM_CHANNEL_3);
-
+  // Enable the DMA update request for timer 1
   __HAL_TIM_ENABLE_DMA(&htim1, TIM_DMA_UPDATE);
+  // Start channel 4 of timer 2, non-interrupt mode, this channel is connected to HSYNC
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
+  // Start channel 3 of timer 2, interrupt mode, this interrupt is used in code to start timer 1 and drive VSYNC
+  HAL_TIM_PWM_Start_IT(&htim2, TIM_CHANNEL_3);
 }
 
 int API_draw_text(int x_lup, int y_lup, int color, char *text, char *fontname, int fontsize, int fontstyle, int reserved)

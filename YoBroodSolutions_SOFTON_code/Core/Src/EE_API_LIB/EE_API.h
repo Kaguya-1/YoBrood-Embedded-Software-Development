@@ -122,13 +122,13 @@ int API_draw_text(int x_lup, int y_lup, int color, char *text, char *fontname, i
 
 
 void API_VGA_init(void);
-void API_TIM1_init(void);
-void API_TIM2_init(void);
-void API_GPIO_init(void);
-void API_DMA_init(TIM_HandleTypeDef* tim_baseHandle);
-void API_IT_init(TIM_HandleTypeDef* tim_pwmHandle);
+void MX_TIM1_Init(void);
+void MX_TIM2_Init(void);
+void MX_GPIO_Init(void);
+void MX_DMA_Init(void);
 void UB_VGA_FillScreen(uint8_t color);
 void UB_VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color);
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 
 
@@ -192,16 +192,16 @@ void UB_VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color);
 #define VGA_TIM2_HSYNC_PERIOD   2667
 #define VGA_TIM2_HSYNC_PRESCALE 0
 
-#define VGA_TIM2_HSYNC_IMP      50 // Prev 320
-#define VGA_TIM2_HTRIGGER_START 500 // Prev 480
-#define VGA_TIM2_DMA_DELAY      2 // Prev 37
+#define VGA_TIM2_HSYNC_IMP      320 // Prev 320
+#define VGA_TIM2_HTRIGGER_START 480 // Prev 480
+#define VGA_TIM2_DMA_DELAY      37 // Prev 37
 // #define  VGA_TIM2_DMA_DELAY         30  // ease the delay when DMA START (Optimization = -O1)
 
 
 // Defines for the VSync-signal
 #define VGA_VSYNC_PERIODE        525 
 #define VGA_VSYNC_IMP            2
-#define VGA_VSYNC_BILD_START     1 // Prev 36
+#define VGA_VSYNC_BILD_START     36 // Prev 36
 #define VGA_VSYNC_BILD_STOP      514   // (16,38ms)
 
 
