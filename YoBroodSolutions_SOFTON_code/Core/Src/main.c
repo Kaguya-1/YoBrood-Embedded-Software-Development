@@ -26,7 +26,7 @@ int main(void)
 
     SYSTEM_GPIO_Init();
     SYSTEM_USART2_Init();
-    API_VGA_init();
+    API_Init();
 
 
     /* Init API functionality */

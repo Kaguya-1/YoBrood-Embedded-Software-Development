@@ -24,7 +24,7 @@ uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y] = {255};
 
 VGA_t VGA = {0};
 
-void API_VGA_init(void)
+void API_Init(void)
 {
 
   VGA.hsync_cnt = 0;

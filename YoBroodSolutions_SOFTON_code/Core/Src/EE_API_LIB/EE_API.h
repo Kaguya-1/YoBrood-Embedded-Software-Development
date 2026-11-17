@@ -121,7 +121,7 @@ int API_draw_text(int x_lup, int y_lup, int color, char *text, char *fontname, i
  int API_draw_figure(int x_1, int y_1, int x_2, int y_2, int x_3, int y_3, int x_4, int y_4, int x_5, int y_5, int color, int reserved);
 
 
-void API_VGA_init(void);
+void API_Init(void);
 void MX_TIM1_Init(void);
 void MX_TIM2_Init(void);
 void MX_GPIO_Init(void);
