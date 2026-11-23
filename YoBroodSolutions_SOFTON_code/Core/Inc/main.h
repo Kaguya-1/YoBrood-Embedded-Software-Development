@@ -18,10 +18,6 @@ extern "C" {
 /* Includes */
 #include "stm32f4xx_hal.h"
 
-#define DEBUG_LAYER_1 1
-#define DEBUG_LAYER_2 1
-#define DEBUG_LAYER_3 1
-
 /* Defines of all the pins */
 #define PC14_OSC32_IN_Pin GPIO_PIN_14
 #define PC14_OSC32_IN_GPIO_Port GPIOC
@@ -45,6 +41,44 @@ extern "C" {
 #define LD6_GPIO_Port GPIOD
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
+
+//define/enum for struct between front and logic layer
+#define MAX_STR_PARAM_LENGTH 256
+
+typedef enum 
+{
+    INT_PARAM_1,
+    INT_PARAM_2,
+    INT_PARAM_3,
+    INT_PARAM_4,
+    INT_PARAM_5,
+    INT_PARAM_6,
+    INT_PARAM_7,
+    INT_PARAM_8,
+    INT_PARAM_9,
+    INT_PARAM_10,
+    INT_PARAM_11,
+    INT_PARAM_12,
+    INT_PARAM_COUNT
+} int_parameter_t;
+
+typedef enum 
+{
+    STR_PARAM_1,
+    STR_PARAM_2,
+    STR_PARAM_3,
+    STR_PARAM_4,
+    STR_PARAM_5,
+    STR_PARAM_6,
+    STR_PARAM_COUNT
+} str_parameter_t;
+
+typedef struct 
+{
+    char command_name[MAX_STR_PARAM_LENGTH];
+    int int_params[INT_PARAM_COUNT];
+    char str_params[STR_PARAM_COUNT][MAX_STR_PARAM_LENGTH];
+} command_t;
 
 
 #endif
