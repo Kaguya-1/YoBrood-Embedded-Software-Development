@@ -69,7 +69,6 @@ typedef enum
     STR_PARAM_3,
     STR_PARAM_4,
     STR_PARAM_5,
-    STR_PARAM_6,
     STR_PARAM_COUNT
 } str_parameter_t;
 
