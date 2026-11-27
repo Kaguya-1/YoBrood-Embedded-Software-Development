@@ -8,11 +8,11 @@
  I call the API func
  */
 
-
- #include "logic_layer.h"
  #include "main.h"
+ #include "logic_layer.h"
 
-ValidationLUT_t validationLUT[] = 
+//lookup table containing the command name, expected parameter count, error code for incorrect parameter count, and the function pointer to the API function for each command
+static const ValidationLUT_t validationLUT[] = 
 {
     {"lijn", LINE_PARAM_COUNT, 201, LOGIC_APIcommand_line},
     {"rechthoek", RECT_PARAM_COUNT, 202, LOGIC_APIcommand_rect},
@@ -25,18 +25,22 @@ ValidationLUT_t validationLUT[] =
     {"figuur", FIGURE_PARAM_COUNT, 209, LOGIC_APIcommand_figure}
 };
 
-const int validationLUT_size = sizeof(validationLUT) / sizeof(validationLUT[0]);    //define size of the LUT for readability later
+static const int validationLUT_size = sizeof(validationLUT) / sizeof(validationLUT[0]);    //define size of the LUT for readability later
 
 // Validate the data received from the front layer
 int LOGIC_data_validation(const char data[][MAX_STR_PARAM_LENGTH], int parameter_count)
 {
+    if(parameter_count < 1)
+        return 210; // No command provided
+
+    // Loop through the validation LUT to find the command, then validate the parameter count and call the corresponding API function
     for(int i = 0; i < validationLUT_size; i++)
     {
-        if(strcmp(data[0], validationLUT[i].command_name) == 0)
+        if(strcmp(data[0], validationLUT[i].command_name) == 0) //check if the command is in the LUT
         {
             if(parameter_count != validationLUT[i].expected_param_count)
                 return validationLUT[i].error_code; //return error code for incorrect parameter count of specific command
-            
+
             else
                 return validationLUT[i].callAPI_function(data); //call the API function for the specific command
         }
