@@ -10,6 +10,7 @@
 
  #include "main.h"
  #include "logic_layer.h"
+ #include <string.h>
 
 //lookup table containing the command name, expected parameter count, error code for incorrect parameter count, and the function pointer to the API function for each command
 static const ValidationLUT_t validationLUT[] = 
