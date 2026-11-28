@@ -17,6 +17,7 @@ extern "C" {
 
 /* Includes */
 #include "stm32f4xx_hal.h"
+#include <stdlib.h>
 
 /* Defines of all the pins */
 #define PC14_OSC32_IN_Pin GPIO_PIN_14

@@ -13,6 +13,7 @@
 #include "main.h"
 #include "EE_API.h"
 #include "SYSTEM_drivers.h"
+#include "stm32f4xx_hal_dma.h"
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -65,7 +66,10 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
     hdma_tim1_up.Init.MemDataAlignment = DMA_PDATAALIGN_BYTE;
     hdma_tim1_up.Init.Mode = DMA_NORMAL;
     hdma_tim1_up.Init.Priority = DMA_PRIORITY_VERY_HIGH;
-    hdma_tim1_up.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+    hdma_tim1_up.Init.FIFOMode = DMA_FIFOMODE_ENABLE;
+    hdma_tim1_up.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_FULL;
+    hdma_tim1_up.Init.MemBurst = DMA_MBURST_SINGLE;
+    hdma_tim1_up.Init.PeriphBurst = DMA_PBURST_SINGLE;
     if (HAL_DMA_Init(&hdma_tim1_up) != HAL_OK)
     {
       /**

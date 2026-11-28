@@ -126,9 +126,10 @@ void MX_TIM1_Init(void);
 void MX_TIM2_Init(void);
 void MX_GPIO_Init(void);
 void MX_DMA_Init(void);
-void UB_VGA_FillScreen(uint8_t color);
-void UB_VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color);
+void API_internalcall_setpixel(uint16_t xp, uint16_t yp, uint8_t color);
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+int API_internalcall_drawLineH(int x_1, int y_1, int x_2, int y_2, int color);
+int API_internalcall_drawLineV(int x_1, int y_1, int x_2, int y_2, int color);
 
 
 
@@ -147,22 +148,23 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 // 16 different colours, maybe an opportunity to save RAM?
 // 8 bit -> 4 bit, and then masking to get 8-bit again?
-#define VGA_COLOR_BLACK 0xFF
-#define VGA_COLOR_BLUE
-#define VGA_COLOR_LIGHTBLUE
-#define VGA_COLOR_GREEN
-#define VGA_COLOR_LIGHTGREEN
-#define VGA_COLOR_CYAN
-#define VGA_COLOR_LIGHTCYAN
-#define VGA_COLOR_RED
-#define VGA_COLOR_LIGHTRED
-#define VGA_COLOR_MAGENTA
-#define VGA_COLOR_LIGHTMAGENTA
-#define VGA_COLOR_BROWN
-#define VGA_COLOR_YELLOW
-#define VGA_COLOR_GRAY
-#define VGA_COLOR_WHITE
-#define VGA_COLOR_RESERVED
+#define VGA_COLOR_BLACK 0x00
+#define VGA_COLOR_BLUE 0x03
+#define VGA_COLOR_LIGHTBLUE 0xBF
+#define VGA_COLOR_GREEN 0x1C
+#define VGA_COLOR_LIGHTGREEN 0xBE
+#define VGA_COLOR_CYAN 0x1F
+#define VGA_COLOR_LIGHTCYAN 0xDF
+#define VGA_COLOR_RED 0xE0
+#define VGA_COLOR_LIGHTRED 0xEE
+#define VGA_COLOR_MAGENTA 0xE3
+#define VGA_COLOR_LIGHTMAGENTA 0xEF
+#define VGA_COLOR_BROWN 0xA5
+#define VGA_COLOR_YELLOW 0xFC
+#define VGA_COLOR_GRAY 0x6D
+#define VGA_COLOR_WHITE 0xFF
+// This will be lichtsaliegroen!
+#define VGA_COLOR_LIGHTSAGEGREEN 0xDE
 
 // Boundaries of the vga display /2, because of the available RAM and oscilator options
 #define VGA_DISPLAY_X   320
@@ -178,7 +180,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 // Division factor for the clock = 11 (+1)
 // Generated clock = 168 / 11 (+1) = 14MHz
 // With a horizontal resolution of 320, we achieve a video-on time of 22,85 us, which is close enough to the 25,42 us specified timing
-#define VGA_TIM1_PERIOD         11
+#define VGA_TIM1_PERIOD         12
 #define VGA_TIM1_PRESCALE       0
 
 
@@ -194,7 +196,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 #define VGA_TIM2_HSYNC_IMP      320 // Prev 320
 #define VGA_TIM2_HTRIGGER_START 480 // Prev 480
-#define VGA_TIM2_DMA_DELAY      37 // Prev 37
+#define VGA_TIM2_DMA_DELAY      85 // Prev 181
 // #define  VGA_TIM2_DMA_DELAY         30  // ease the delay when DMA START (Optimization = -O1)
 
 
